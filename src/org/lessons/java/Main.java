@@ -25,7 +25,13 @@ public class Main {
 
 		while (true) {
 
-			System.out.println("Inserisci Libro: \n" + "1 - Si \n" + "2 - No");
+			System.out.println();
+
+			if (indexBooksList == 0) {
+				System.out.println("Inserisci Libro: \n" + "1 - Si \n" + "2 - Stop programma");
+			} else {
+				System.out.println("Inserisci Libro: \n" + "1 - Aggiungi altro libro \n" + "2 - Stop programma");
+			}
 			userInp = in.nextLine();
 			moreBook = Integer.valueOf(userInp);
 
@@ -34,8 +40,10 @@ public class Main {
 				break;
 			}
 
-			if (moreBook != 1)
+			if (moreBook != 1) {
+				System.out.println("\n '!'Scelta non valida! Digita una delle opzioni \n");
 				continue;
+			}
 
 			try {
 
@@ -85,7 +93,8 @@ public class Main {
 
 			for (Book book : books) {
 
-				myWriter.write(book.toString() + "\n");
+				if (book != null)
+					myWriter.write(book.toString() + "\n");
 			}
 
 		} catch (IOException e) {
@@ -108,7 +117,7 @@ public class Main {
 
 		// READ
 
-		System.out.println("\n----------------------\n | INIZIO SCRITTURE | \n----------------------\n");
+		System.out.println("\n----------------------\n | INIZIO LETTURA | \n----------------------\n");
 
 		Scanner reader = null;
 
